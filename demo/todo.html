@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>TODO</title>
+  </head>
+  <body>
+    <form onSubmit="todo.submit()" method="post">
+      <input class="newTask"/><input type="submit"/>
+      <ul class="tasks">
+      </ul>
+    </form>
+
+<script>
+class Todo {
+
+  constructor () {
+    this.list = [
+      '買い物に行く',
+      '仕事をする'
+    ];
+    this.el = {
+      newTask: document.querySelector('.newTask'),
+      tasks:  document.querySelector('.tasks')
+    };
+    this.rendar();
+  }
+
+  rendar () {
+    this.el.tasks.innerHTML = ['<li>', this.list.join('</li><li>'),'</li>'].join('');
+  }
+
+  submit () {
+    const task = this.el.newTask.value;
+    if (task.length) {
+      this.list.push(task);
+      this.rendar();
+      this.el.newTask.value = '';
+    }
+    event.preventDefault();
+  }
+
+}
+window.todo = new Todo();
+
+
+</script>
+
+  </body>
+</html>
