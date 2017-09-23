@@ -1,14 +1,7 @@
 const puppeteer = require('puppeteer');
-
-(async () => {
-  const browser = await puppeteer.launch();
+puppeteer.launch().then(async browser => {
   const page = await browser.newPage();
-  await page.goto('http://www.cyokodog.net');
-  // await page.goto('http://localhost:8080/demo/form.html');
-  
-  
-
-  // Get the "viewport" of the page, as reported by the page.
+  await page.goto('https://www.google.com');
   const dimensions = await page.evaluate(() => {
     return {
       width: document.documentElement.clientWidth,
@@ -16,8 +9,6 @@ const puppeteer = require('puppeteer');
       deviceScaleFactor: window.devicePixelRatio
     };
   });
-  
   console.log('Dimensions:', dimensions);
-
   browser.close();
-})();
+});

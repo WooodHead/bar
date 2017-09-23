@@ -7,6 +7,7 @@
     "start": "http-server",
     "deploy": "exit 0",
     "eval": "cd demo && node eval",
+    "screen_shot": "cd demo && node screen_shot",
     "pdf": "cd demo && node pdf",
     "debugging": "cd demo && node debugging",
     "google_search": "cd demo && node google_search",
@@ -21,7 +22,7 @@
     "test_6": "mocha test/e2e.js",
     "test_7": "jest",
     "test_8": "node test/dmocha.js",
-    "test": "node server"
+    "test": "node test"
   },
   "ava": {
     "verbose": true,
